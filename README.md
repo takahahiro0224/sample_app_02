@@ -1,34 +1,41 @@
-source 'https://rubygems.org'
+# Ruby on Rails チュートリアルのサンプルアプリケーション
 
-gem 'rails',        '5.1.4'
-gem 'puma',         '3.9.1'
-gem 'sass-rails',   '5.0.6'
-gem 'uglifier',     '3.2.0'
-gem 'coffee-rails', '4.2.2'
-gem 'jquery-rails', '4.3.1'
-gem 'turbolinks',   '5.0.1'
-gem 'jbuilder',     '2.7.0'
+これは、次の教材で作られたサンプルアプリケーションです。   
+[*Ruby on Rails チュートリアル*](https://railstutorial.jp/)
+[Michael Hartl](http://www.michaelhartl.com/) 著
 
-group :development, :test do
-  gem 'sqlite3', '1.3.13'
-  gem 'byebug',  '9.0.6', platform: :mri
-end
+## ライセンス
 
-group :development do
-  gem 'web-console',           '3.5.1'
-  gem 'listen',                '3.1.5'
-  gem 'spring',                '2.0.2'
-  gem 'spring-watcher-listen', '2.0.1'
-end
+[Ruby on Rails チュートリアル](https://railstutorial.jp/)内にある
+ソースコードはMITライセンスとBeerwareライセンスのもとで公開されています。
+詳細は [LICENSE.md](LICENSE.md) をご覧ください。
 
-group :test do
-  gem 'rails-controller-testing', '1.0.2'
-  gem 'minitest-reporters',       '1.1.14'
-  gem 'guard',                    '2.13.0'
-  gem 'guard-minitest',           '2.4.4'
-end
+## 使い方
 
-group :production do
-  gem 'pg', '0.20.0'
-end
+このアプリケーションを動かす場合は、まずはリポジトリを手元にクローンしてください。
+その後、次のコマンドで必要になる RubyGems をインストールします。
 
+```
+$ bundle install --without production
+```
+
+その後、データベースへのマイグレーションを実行します。
+
+```
+$ rails db:migrate
+```
+
+最後に、テストを実行してうまく動いているかどうか確認してください。
+
+```
+$ rails test
+```
+
+テストが無事に通ったら、Railsサーバーを立ち上げる準備が整っているはずです。
+
+```
+$ rails server
+```
+
+詳しくは、[*Ruby on Rails チュートリアル*](https://railstutorial.jp/)
+を参考にしてください。
