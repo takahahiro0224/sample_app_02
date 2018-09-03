@@ -1,13 +1,19 @@
-<footer class="footer">
-  <small>
-    The <a href="https://railstutorial.jp/">Ruby on Rails Tutorial</a>
-    by <a href="http://www.michaelhartl.com/">Michael Hartl</a>
+<footer class="footer border-top border-black" style="padding-top: 10px; padding-bottom: 50px;">
+  <div class="container mt-2 mb-5">
+  <small class="float-left">This application is made by <a href="https://rubyonrails.org/">Ruby on Rails</a>. And reffering to <a href="https://railstutorial.jp/">
+    The Ruby on Rails Tutorial
+  </a>by <a href="http://www.michaelhartl.com/">Michael Hartl.</p>
   </small>
-  <nav>
-    <ul>
-      <li><%= link_to "About",   about_path %></li>
-      <li><%= link_to "Contact", contact_path %></li>
-      <li><a href="http://news.railstutorial.org/">News</a></li>
+  
+  
+ 
+  <nav class="float-right">
+    <ul style="list-style: none;">
+      <li class="float-left mr-2"><%= link_to "About",   about_path %></li>
+      <li class="float-left mr-2"><%= link_to "Contact", contact_path %></li>
+      <li class="float-left mr-2"><a href="http://news.railstutorial.org/">News</a></li>
+      <li class="float-left"><a href="https://github.com/takahahiro0224/sample_app_02"><i class="fab fa-github fa-lg"></i></a></li>
     </ul>
   </nav>
+  </div>
 </footer>

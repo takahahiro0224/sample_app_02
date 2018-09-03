@@ -14,21 +14,52 @@
     <div class="col-md-8">
       <h3>Micropost Feed</h3>
       <%= render 'shared/feed' %>
+      <% if @feed_items.size == 0 then %>
+        <p>該当するコンテンツが存在しません</p>
+      <% end %>
     </div>
   </div>
 <% else %>
-<div class="center jumbotron">
-  <h1>サンプルアプリへようこそ！</h1>
+<section>
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag("logo_transparent.png", style: "height: 350px;, width: 350px") %>
+    </div>
+    <div class="col-md-8">
+      <h2 class="my-5"><span style="margin-right: 10px;"><i class="fas fa-user"></i></span>あなたの「好き」をフォローしよう。</h2>
+      <h2 class="mb-5"><span style="margin-right: 10px;"><i class="fas fa-search"></i></span>話題のトピックを追いかけましょう。</h2>
+      <h2 class="mb-5"><span style="margin-right: 10px;"><i class="far fa-comment"></i></span>Scatterに参加しましょう。</h2>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="center jumbotron text-center">
+  <h1 class="mb-3">「いま」起きていることを見つけよう</h1>
 
-  <h2>
-    This is the home page for the
-    <a href="https://railstutorial.jp/">Ruby on Rails Tutorial</a>
-    sample application.
-  </h2>
+  <h3 class="mb-3">Scatterをはじめる<h3>
+  
+    <%= link_to "アカウント作成", signup_path, class: "btn btn-lg btn-primary mr-3", style: "width: 200px;" %>
+    <%= link_to "ログイン", login_path, class: "btn btn-lg btn-success ml-3", style: "width: 200px;" %>
+  </div>
+</section>
 
-  <%= link_to "新規登録", signup_path, class: "btn btn-lg btn-primary" %>
-</div>
-
-<%= link_to image_tag("rails.png", alt: "Rails logo"),
-            'http://rubyonrails.org/' %>
+<section class="bg-light text-center pt-5 pb-2">
+          <h2 class="mg-5">Scatterでできること</h2>
+          <div class="container">
+            <table class="table table-striped">
+              <thead>
+                <tr><th>What can you doing in Scatter?</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>マイクロポストの投稿</td></tr>
+                <tr><td>ユーザーのフォロー</td></tr>
+                <tr><td>ユーザーの投稿へのいいね</td></tr>
+                <tr><td>ユーザー・マイクロポスト検索</td></tr>
+                <tr><td>ユーザーの投稿への返信</td></tr>
+                <tr><td>ダイレクトメッセージ</td></tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </section>
 <% end %>
