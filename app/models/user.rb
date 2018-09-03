@@ -8,6 +8,7 @@ class User < ApplicationRecord
                 dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :likes, dependent: :destroy
   attr_accessor :remember_token, :activation_token, :reset_token
   #検索用のスコープ
   scope :search_by_keyword, -> (keyword) {

@@ -1,5 +1,7 @@
 class Micropost < ApplicationRecord
   belongs_to :user
+  has_many :likes, dependent: :destroy
+  has_many :iine_users, through: :likes, source: :user
   default_scope -> { order(created_at: :desc) }
   #検索用のスコープ
   scope :search_by_keyword, -> (keyword) {
@@ -9,6 +11,21 @@ class Micropost < ApplicationRecord
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
   validate :picture_size
+  
+  # マイクロポストをいいねする
+  def iine(user)
+    likes.create(user_id: user.id)
+  end
+  
+  # マイクロポストのいいねを解除する
+  def uniine(user)
+    likes.find_by(user_id: user.id).destroy
+  end
+  
+  # 現在のユーザーがいいねしてたらtrueを返す
+  def iine?(user)
+    iine_users.include?(user)
+  end
   
   private
     

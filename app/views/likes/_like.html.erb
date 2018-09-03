@@ -1,0 +1,16 @@
+<% if !current_user?(micropost.user) %>
+<span class="like ml-1">
+  <% if micropost.iine?(current_user) %>
+      <%= link_to(micropost.likes.find_by(user_id: current_user.id),
+                    method: :delete, remote: true) do %>
+      <span class="fa fa-heart like-btn" style="color: red;"></span>
+      <% end %>
+      <small><%= micropost.likes_count %></small>
+    <% else %>
+      <%= link_to("/likes/#{micropost.id}/create", method: :post, remote: true) do %>
+        <span class="fa fa-heart like-btn" style="color: gray;"></span>
+      <% end %>
+        <small><%= micropost.likes_count %></small>
+    <% end %>
+  </span>
+<% end %>
