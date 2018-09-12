@@ -1,5 +1,5 @@
 <% if !current_user?(micropost.user) %>
-<span class="like ml-1">
+<span class="like">
   <% if micropost.iine?(current_user) %>
       <%= link_to(micropost.likes.find_by(user_id: current_user.id),
                     method: :delete, remote: true) do %>

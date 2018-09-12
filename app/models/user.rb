@@ -9,6 +9,12 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :likes, dependent: :destroy
+  has_many :from_messages, class_name: "Message",
+            foreign_key: "from_id", dependent: :destroy
+  has_many :to_messages, class_name: "Message",
+            foreign_key: "to_id", dependent: :destroy
+  has_many :sent_messages, through: :from_message, source: :from
+  has_many :received_messages, through: :to_messages, source: :to
   attr_accessor :remember_token, :activation_token, :reset_token
   #検索用のスコープ
   scope :search_by_keyword, -> (keyword) {
@@ -101,6 +107,13 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
+  
+  def send_message(other_user, room_id, content)
+    from_messages.create!(to_id: other_user.id, room_id: room_id, content: content)
+  end
+  
+
+  
   
   private
   
