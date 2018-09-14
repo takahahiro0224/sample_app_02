@@ -99,4 +99,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.action_cable.url = 'wss://blooming-reef-77111.herokuapp.com/cable'
+  config.action_cable.allowed_request_origins = [
+    'https://blooming-reef-77111.herokuapp.com/' ]
 end
